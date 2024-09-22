@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styles/style.css')}}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <img class="background" src="{{ url_for('static', filename='/images/Background.jpg')}}" alt="">
+
+  <section class="main">
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/Image.png')}}" alt="" class="img">
+
+        <div class="content">
+            <h1>
+                Hello, I am DeeperAI,
+                <br>
+                <span>Check Your Imge Fake or Not</span> 
+            </h1>
+            <p>
+                "This is just our Early Innings, We will race ahead soon
+            </p>
+        </div>
+    </div>
+
+    <div class="container1">
+        
+        {% if prediction %}
+        <img id="o_img" src="{{url_for('static',filename='image.jpg')}}" height="300px" width="300px">
+          <h2> This Is : <i> {{prediction}} </i></h2>
+        {% else %}
+        <img id="o_img" src="{{url_for('static',filename='images/Owl.png')}}" height="300px" width="300px">
+        <p>Let's Find your Fake Here</p>
+          {% endif %}
+
+        <h1 class="Heading">DeepFake Detection</h1>
+        <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Upload your herb image:</label>
+            <div class="col-sm-10">          
+              <input type="file" class="form-control" placeholder="Hours Studied"  name="my_image" id="pwd">
+            </div>
+          </div>
+          <div class="form-group">        
+            <div>
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+  </section>
+</div>
+</div>
+
+<script src="{{ url_for('static', filename='/scripts/scripts.js')}}">
+
+</script>
+<script src="https://kit.fontawesome.com/e19484dcd7.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
